@@ -31,9 +31,14 @@ class urinalstest {
         assertEquals(true,testcase.isgoodstring("1001"));
     }
     @org.junit.jupiter.api.Test
-    void CheckingCountUrinals() {
+    void CheckingCountUrinals1() {
         urinals testcase = new urinals();
         assertEquals(1,testcase.countUrinals("10001"));
+    }
+    @org.junit.jupiter.api.Test
+    void CheckingCountUrinals2() {
+        urinals testcase = new urinals();
+        assertEquals(0,testcase.countUrinals("1001"));
     }
 
 
