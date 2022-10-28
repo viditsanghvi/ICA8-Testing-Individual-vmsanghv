@@ -1,6 +1,6 @@
 // Author: Vidit Sanghvi
 import java.io.*;
-import java.nio.file.FileAlreadyExistsException;
+
 import java.util.Scanner;
 public class urinals {
 
@@ -9,13 +9,13 @@ public class urinals {
         System.out.println("Press 1 to continue and 0 to exit");
         Scanner myObj = new Scanner(System.in);
         String inputs = myObj.nextLine();  // Read user input
-        if (inputs =="1") {
+        if (inputs.equals("1")) {
 
             urinals obj = new urinals();
             obj.Readfile("urinals.dat");
             System.out.println("Check rule[].txt file for output");
         }
-        else if (inputs =="0")
+        else if (inputs.equals("0"))
             System.out.println("Exiting");
         else
         {
@@ -26,8 +26,8 @@ public class urinals {
 
     public String Readfile(String Filename)
     {
-        String fname="";
-        fname= this.outputFileName();
+
+        String fname= this.outputFileName();
         try {
             File datfile = new File(Filename);
 
@@ -115,15 +115,15 @@ public class urinals {
 
             FileWriter fw = new FileWriter(nameoffile, true);
             BufferedWriter bw = new BufferedWriter(fw);
-            Integer ans = sol;
-            bw.write(ans.toString());
+            int ans = sol;
+            bw.write(Integer.toString(ans));
             bw.newLine();
             bw.close();
 
         }
         catch(IOException e)
         {
-            System.out.println("I/O Exception!");
+            System.out.println(e.getMessage());
         }
     }
 }
