@@ -4,7 +4,7 @@ class urinalstest {
     // This Junit tests if the file exists or not
     // This particular testcase checks if "urinals.dat" is found or not
     @org.junit.jupiter.api.Test
-    void fileexists() {
+    void fileExists() {
         urinals testcase = new urinals();
         assertEquals("File Found",testcase.Readfile("urinals.dat"));
     }
@@ -50,7 +50,13 @@ class urinalstest {
         urinals testcase = new urinals();
         assertEquals(4,testcase.countUrinals("00000000"));
     }
-
+    @org.junit.jupiter.api.Test
+    //Change it to expected string name to make the test case run
+    void Existingfile() {
+        String filename= "rule.txt"; // Here
+        urinals testcase = new urinals();
+        assertEquals(filename,testcase.outputFileName());
+    }
 
 
 }

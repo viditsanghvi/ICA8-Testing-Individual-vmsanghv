@@ -6,9 +6,9 @@ import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
 public class urinals {
 
-    public void main(String[] args) {
-
-        Readfile("urinals.dat");
+    public static void main(String[] args) {
+        urinals obj = new urinals();
+        obj.Readfile("urinals.dat");
 
     }
 
@@ -19,9 +19,11 @@ public class urinals {
 
             Scanner myReader = new Scanner(datfile);
             if (datfile.length() == 0) { return "File Found but File is Empty"; }
-
-//            while (myReader.hasNextLine()) {
-//                String data = myReader.nextLine(); }
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+            int sol = countUrinals(data);
+            System.out.print(sol);
+            }
                 return "File Found";
         }
             catch(IOException e)
@@ -67,6 +69,28 @@ public class urinals {
         }
         return urinals;
 
+    }
+    String outputFileName()
+    {
+
+        String filename = "rule.txt";
+        int count=0;
+        File file = new File(filename);
+
+        while(true)
+        {
+            if(file.exists())
+            {
+                count++;
+                filename = filename.substring(0,4) + count + ".txt";
+                file = new File(filename);
+            }
+            else
+            {
+                break;
+            }
+        }
+        return filename;
     }
 }
 
