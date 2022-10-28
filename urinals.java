@@ -1,6 +1,7 @@
 // Author: Vidit Sanghvi
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
 public class urinals {
@@ -23,7 +24,7 @@ public class urinals {
 //                String data = myReader.nextLine(); }
                 return "File Found";
         }
-            catch(FileNotFoundException e)
+            catch(IOException e)
             {
                 System.out.println(e.getMessage());
                 return e.getMessage(); // when file does not exist
@@ -33,12 +34,12 @@ public class urinals {
 
 
     }
-     Boolean isgoodstring(String str)
+     Boolean isgoodstring(String urinalstring)
     {
-        int n = str.length();
+        int n = urinalstring.length();
         for(int i=1; i<n; i++)
         {
-            if(str.charAt(i)=='1' && str.charAt(i-1)=='1')
+            if(urinalstring.charAt(i)=='1' && urinalstring.charAt(i-1)=='1')
             {
                 return false;
             }
@@ -46,4 +47,26 @@ public class urinals {
         }
         return true;
     }
+
+    int countUrinals(String urinalstring )
+    {   int urinals=0;
+        int len = urinalstring.length();
+        if(!isgoodstring(urinalstring)) {
+            return -1;
+        }
+        for(int j=0; j<len; j++)
+        {
+            if(urinalstring.charAt(j)=='0')
+            {
+                if((j-1<0 || urinalstring.charAt(j-1)=='0') && (j+1>=len || urinalstring.charAt(j+1)=='0'))
+                {
+                    urinals++;
+                    j++;
+                }
+            }
+        }
+        return urinals;
+
+    }
 }
+
