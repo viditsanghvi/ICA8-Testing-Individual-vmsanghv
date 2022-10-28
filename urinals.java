@@ -5,13 +5,13 @@ import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
 public class urinals {
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
 
-       String a = Readfile("urinals.dat");
+        Readfile("urinals.dat");
 
     }
 
-    public static String Readfile(String Filename)
+    public String Readfile(String Filename)
     {
         try {
             File datfile = new File(Filename);
@@ -33,9 +33,17 @@ public class urinals {
 
 
     }
-    public static int checkFileEmpty(String Filename)
+    static Boolean isgoodstring(String str)
     {
+        int n = str.length();
+        for(int i=1; i<n; i++)
+        {
+            if(str.charAt(i)=='1' && str.charAt(i-1)=='1')
+            {
+                return false;
+            }
 
-    return 0;
+        }
+        return true;
     }
 }
