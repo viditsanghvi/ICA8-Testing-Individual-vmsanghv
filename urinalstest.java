@@ -45,6 +45,11 @@ class urinalstest {
         urinals testcase = new urinals();
         assertEquals(-1,testcase.countUrinals("11"));
     }
+    @org.junit.jupiter.api.Test
+    void CheckingCountUrinals4() {
+        urinals testcase = new urinals();
+        assertEquals(4,testcase.countUrinals("00000000"));
+    }
 
 
 
