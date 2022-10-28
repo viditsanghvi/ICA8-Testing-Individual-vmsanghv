@@ -33,7 +33,7 @@ public class urinals {
 
 
     }
-    static Boolean isgoodstring(String str)
+     Boolean isgoodstring(String str)
     {
         int n = str.length();
         for(int i=1; i<n; i++)

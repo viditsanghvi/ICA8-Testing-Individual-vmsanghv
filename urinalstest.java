@@ -21,8 +21,14 @@ class urinalstest {
         assertEquals("File Found but File is Empty",testcase.Readfile("EmptyFile.dat"));
     }
     @org.junit.jupiter.api.Test
-    void Checking() {
+    void Checkingbadstring() {
         urinals testcase = new urinals();
         assertEquals(false,testcase.isgoodstring("1011"));
     }
+    @org.junit.jupiter.api.Test
+    void CheckingGoodString1() {
+        urinals testcase = new urinals();
+        assertEquals(true,testcase.isgoodstring("1001"));
+    }
+
 }
