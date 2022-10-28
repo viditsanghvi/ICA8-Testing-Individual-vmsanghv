@@ -52,7 +52,7 @@ class urinalstest {
     }
     @org.junit.jupiter.api.Test
     //Change it to expected string name to make the test case run
-    void Existingfile() {
+    void FileName() {
         String filename= "rule.txt"; // Here
         urinals testcase = new urinals();
         assertEquals(filename,testcase.outputFileName());

@@ -1,19 +1,33 @@
 // Author: Vidit Sanghvi
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
 public class urinals {
 
     public static void main(String[] args) {
-        urinals obj = new urinals();
-        obj.Readfile("urinals.dat");
+        System.out.println("Please copy paste the input in urinals.dat file and run the code.");
+        System.out.println("Press 1 to continue and 0 to exit");
+        Scanner myObj = new Scanner(System.in);
+        String inputs = myObj.nextLine();  // Read user input
+        if (inputs =="1") {
 
+            urinals obj = new urinals();
+            obj.Readfile("urinals.dat");
+            System.out.println("Check rule[].txt file for output");
+        }
+        else if (inputs =="0")
+            System.out.println("Exiting");
+        else
+        {
+            System.out.println("Please enter a valid input");
+        }
     }
+
 
     public String Readfile(String Filename)
     {
+        String fname="";
+        fname= this.outputFileName();
         try {
             File datfile = new File(Filename);
 
@@ -22,7 +36,8 @@ public class urinals {
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
             int sol = countUrinals(data);
-            System.out.print(sol);
+
+                writeinFile(sol,fname);
             }
                 return "File Found";
         }
@@ -41,6 +56,7 @@ public class urinals {
         int n = urinalstring.length();
         for(int i=1; i<n; i++)
         {
+
             if(urinalstring.charAt(i)=='1' && urinalstring.charAt(i-1)=='1')
             {
                 return false;
@@ -91,6 +107,24 @@ public class urinals {
             }
         }
         return filename;
+    }
+    void writeinFile(int sol, String nameoffile)
+    {
+        try
+        {
+
+            FileWriter fw = new FileWriter(nameoffile, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            Integer ans = sol;
+            bw.write(ans.toString());
+            bw.newLine();
+            bw.close();
+
+        }
+        catch(IOException e)
+        {
+            System.out.println("I/O Exception!");
+        }
     }
 }
 
