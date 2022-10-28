@@ -7,30 +7,33 @@ public class urinals {
 
     public static void main(String[] args) {
 
-        int a = openfile("urinals.dat");
+       // int a = checkFileExists("urinals.dat");
 
     }
 
-    public static int openfile(String Filename)
+    public static int checkFileExists(String Filename)
     {
         try {
             File datfile = new File(Filename);
 
             Scanner myReader = new Scanner(datfile);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                //System.out.println(data);
+//            while (myReader.hasNextLine()) {
+//                String data = myReader.nextLine(); }
                 return 1;
-            }
-            }
+        }
             catch(FileNotFoundException e)
             {
                 System.out.println(e.getMessage());
-                return -1;
+                return -1; // when file does not exist
             }
 
-        return 0;
 
 
+
+    }
+    public static int checkFileEmpty(String Filename)
+    {
+
+    return 0;
     }
 }
