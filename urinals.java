@@ -17,6 +17,8 @@ public class urinals {
             File datfile = new File(Filename);
 
             Scanner myReader = new Scanner(datfile);
+            if (datfile.length() == 0) { return "File Found but File is Empty"; }
+
 //            while (myReader.hasNextLine()) {
 //                String data = myReader.nextLine(); }
                 return "File Found";

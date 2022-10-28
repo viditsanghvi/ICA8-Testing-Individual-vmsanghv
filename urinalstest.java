@@ -14,5 +14,11 @@ class urinalstest {
         urinals testcase = new urinals();
         assertEquals("urvinals.dat (The system cannot find the file specified)",testcase.Readfile("urvinals.dat"));
     }
+    // Created a dummy file to check if it throws File empty
+    @org.junit.jupiter.api.Test
+    void FileFoundBuEmpty() {
+        urinals testcase = new urinals();
+        assertEquals("File Found but File is Empty",testcase.Readfile("EmptyFile.dat"));
+    }
 
 }
